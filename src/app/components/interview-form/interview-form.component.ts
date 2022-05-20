@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-interview-form',
+  selector: 'interview-form',
   templateUrl: './interview-form.component.html',
-  styleUrls: ['./interview-form.component.css']
+  styleUrls: ['./interview-form.component.css'],
 })
 export class InterviewFormComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  interviewForm: FormGroup;
+  constructor(private formbuilder : FormBuilder) {
+    this.interviewForm = this.formbuilder.group({
+      candidateId : ['',Validators.required],
+      finalStatus : ['',Validators.required],
+      hrRating : ['',Validators.required],
+      techRating : ['',Validators.required],
+      date : ['',Validators.required]
+    })
   }
 
+    submitInterviewForm = () => {
+    console.log(this.interviewForm.value);
+
+
+  }
+
+  ngOnInit(): void {}
 }

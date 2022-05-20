@@ -1,1 +1,78 @@
-<p>interview-form works!</p>
+<!--<p>advertisement-form-component works!</p> -->
+<h1>Interview Form </h1>
+<br><br>
+
+<form [formGroup]="interviewForm" (ngSubmit)="submitInterviewForm()">
+    <div class="container">
+
+        <div class="form-group">
+            <input type="number" formControlName="candidateId" placeholder="enter candidate Id" class="form-control" />
+        </div>
+        <div *ngIf="interviewForm.controls['candidateId'].hasError('required')" class="alert alert-danger">
+            Please Add candidate Id
+        </div>
+
+        <br>
+        <br />
+        <div class="form-group">
+            <input type="number" min="0" max="10" placeholder="Give TechRating" formControlName="techRating"
+                class="form-control" />
+            <div *ngIf="interviewForm.controls['techRating'].hasError('required')" class="alert alert-danger">
+                Please Add TechRating
+            </div>
+
+        </div>
+        <br>
+
+        <div class="form-group">
+            <input type="number" min="0" max="10" placeholder="Give HR-Rating" formControlName="hrRating"
+                class="form-control" />
+            <div *ngIf="interviewForm.controls['hrRating'].hasError('required')" class="alert alert-danger">
+                Please Add HR Rating
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <input type="text" formControlName="Final Status" class="form-control" placeholder="finalStatus" />
+            <div *ngIf="interviewForm.controls['finalStatus'].hasError('required')" class="alert alert-danger">
+                Please Add Final Status
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <input type="date" formControlName="date" class="form-control" placeholder="enter date" />
+            <div *ngIf="interviewForm.controls['date'].hasError('required')" class="alert alert-danger">
+                Please Add date
+            </div>
+        </div>
+
+
+
+
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br />
+    </div>
+</form>
+
+<!--
+<table>
+    <tr>
+        <th>candidateId</th>
+        <th>TechRating</th>
+        <th>Category</th>
+        <th>Final Status</th>
+    </tr>
+    <tr *ngFor="let detail of details">
+        <td>{{detail.candidateId}}</td>
+        <td>{{detail.techRating}}</td>
+        <td>{{detail.category}}</td>
+        <td>{{detail.description}}</td>
+    </tr>
+</table>-->
