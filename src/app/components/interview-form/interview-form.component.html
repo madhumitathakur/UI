@@ -71,12 +71,6 @@
 
 </form>
 
-<ul>
-    <li *ngFor="let value of forms">{{value | json}}</li>
-</ul>
-
-
-
 <table class="table table-striped table-hover">
     <thead>
 
@@ -98,16 +92,13 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let detail of interviewDetails">
-            <td>
-                {{detail.interviewId}}
-            </td>
-
+        <tr *ngFor="let detail of forms">
+            <td>{{detail.interviewId}}</td>
             <td>{{detail.candidateId}}</td>
             <td>{{detail.techRating}}</td>
             <td>{{detail.hrRating}}</td>
             <td>{{detail.finalStatus}}</td>
-            <!-- <td>{{detail.date}}</td> -->
+            <td>{{detail.date}}</td>
             <td><button type="button" class="btn btn-success bg-danger"
                     (click)="deleteInterviewById(detail.interviewId)">Delete</button></td>
             <td><button type="button" class="btn btn-success bg-primary"
