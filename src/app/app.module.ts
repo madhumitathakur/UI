@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { InterviewService } from './services/interview.service';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { InterviewService } from './services/interview.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [InterviewService],
+  providers: [InterviewService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

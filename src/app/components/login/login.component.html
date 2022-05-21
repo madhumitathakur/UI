@@ -1,0 +1,35 @@
+<!--<p>advertisement-form-component works!</p> -->
+<h1>Login Form </h1>
+<br><br>
+
+<form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+
+    <div class="container">
+
+
+        <div class="form-group">
+            <input type="text" formControlName="userName" class=" form-control" placeholder="userName" />
+            <div *ngIf="loginForm.controls['userName'].hasError('required')" class="alert alert-danger">
+                Please Add user Name
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" formControlName="password" class=" form-control" placeholder="password" />
+            <div *ngIf="loginForm.controls['password'].hasError('required')" class="alert alert-danger">
+                Please Add user Name
+            </div>
+        </div>
+
+
+
+
+
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br />
+    </div>
+
+</form>
