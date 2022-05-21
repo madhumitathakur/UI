@@ -17,13 +17,16 @@ import {
 @Injectable()
 export class LoginService implements HttpInterceptor {
     authToken: any;
+    apiToken: string = '';
 
     setToken(token: any) {
         this.authToken = token;
+        this.apiToken = JSON.stringify(this.authToken);
+        this.apiToken = this.apiToken.substring(8, 139);
     }
 
     getToken() {
-        return this.authToken;
+        return this.apiToken;
     }
 
     postUrl = 'http://localhost:8003/its-login/user/authenticate';
@@ -41,7 +44,6 @@ export class LoginService implements HttpInterceptor {
                 'Content-Type': 'application/json',
             }),
         };
-        //this.addLogins(product);
         return this.httpClient.post<any>(
             this.postUrl,
             JSON.stringify(loginForms),

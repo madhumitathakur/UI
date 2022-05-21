@@ -12,22 +12,20 @@ export class InterviewService {
     getUrl = 'http://localhost:8004/admin/interviews';
     deleteUrl = 'http://localhost:8004/admin/interview';
     postUrl = 'http://localhost:8004/admin/interview';
-    token = {
-        "jwt": ""
-    }
-
+    token: string = '';
     constructor(private httpClient: HttpClient, private loginService: LoginService) {
 
     }
 
     createNewInterview(interviewForms: any): Observable<any> {
         this.token = this.loginService.getToken();
+        console.log("this token in bearer ", this.token)
         let httpOptions = {
             headers: new HttpHeaders({
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
                 // 'Authorization': 'Bearer ' + this.token.jwt.valueOf
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzE4MDg0NywiaWF0IjoxNjUzMTQ0ODQ3fQ.fBmiuz_C6399ZAHv02IxvaJzFQm1si6O8CFzRlNxfPQ'
+                'Authorization': 'Bearer ' + this.token
 
 
             }),
