@@ -4,6 +4,7 @@ import { Interview } from '../entities/interview.entity';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { LoginService } from './login.service';
 
 @Injectable()
 export class InterviewService {
@@ -11,15 +12,19 @@ export class InterviewService {
     getUrl = 'http://localhost:8004/admin/interviews';
     deleteUrl = 'http://localhost:8004/admin/interview';
     postUrl = 'http://localhost:8004/admin/interview';
+    token: any;
 
-    constructor(private httpClient: HttpClient) { }
+    constructor(private httpClient: HttpClient, private loginService: LoginService) {
+
+    }
 
     createNewInterview(interviewForms: any): Observable<any> {
+        this.token = this.loginService.getToken();
         let httpOptions = {
             headers: new HttpHeaders({
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzE3MTA3NSwiaWF0IjoxNjUzMTM1MDc1fQ.cGqasa2aAt0j056h7NaZNtDv7Z-ARrD6SnEeAcptONo'
+                'Authorization': 'Bearer ' + this.token.value
             }),
         };
         //this.addInterviews(product);

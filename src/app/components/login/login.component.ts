@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   selector: 'login-form',
   templateUrl: './login.component.html'
 })
-export class LoginComponent implements HttpInterceptor{
+export class LoginComponent {
   forms: any = [];
   loginDetails: Array<Login> = new Array();
   // loginForm: FormGroup;
@@ -26,13 +26,10 @@ export class LoginComponent implements HttpInterceptor{
     //   this.forms = serverResponse;
     // })
   }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    throw new Error('Method not implemented.');
-  }
 
   loginForm = new FormGroup({
-    userName: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
+    userName: new FormControl('admin', [Validators.required]),
+    password: new FormControl('admin', [Validators.required])
 
 
   })
@@ -59,6 +56,9 @@ export class LoginComponent implements HttpInterceptor{
       console.log('createNewLogin - serviceResponse : ', serverResponse);
 
       this.forms.push(serverResponse);
+      var token = serverResponse;
+      console.log("token -> var " , token);
+      this.loginService.setToken(token);
     })
 
     console.log(this.loginForm.value);

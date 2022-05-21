@@ -20,7 +20,8 @@ export class PannelService {
             headers: new HttpHeaders({
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
-                'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzE3NjU2MywiaWF0IjoxNjUzMTQwNTYzfQ.7q0hZZkU1rpUq1XVoxZiFjhqZ2S_Nl2art12hvsDo4I'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzE3MTA3NSwiaWF0IjoxNjUzMTM1MDc1fQ.cGqasa2aAt0j056h7NaZNtDv7Z-ARrD6SnEeAcptONo'
+
             }),
         };
         return this.httpClient.post<any>(

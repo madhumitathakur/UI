@@ -18,11 +18,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { InterviewService } from './services/interview.service';
-<<<<<<< HEAD
 import { PannelService } from './services/pannel.service';
-=======
 import { LoginService } from './services/login.service';
->>>>>>> 74e50769c52bb7ed0cfcb55ad1167c6f86ec929f
+import { LoggingInterceptor } from './logging.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -44,12 +43,10 @@ import { LoginService } from './services/login.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-<<<<<<< HEAD
-  providers: [InterviewService,PannelService],
-=======
-  providers: [InterviewService, LoginService, { provide: HTTP_INTERCEPTORS, useClass: LoginService, multi: true }],
 
->>>>>>> 74e50769c52bb7ed0cfcb55ad1167c6f86ec929f
+  providers: [InterviewService, PannelService, LoginService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

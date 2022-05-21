@@ -27,13 +27,13 @@ export class InterviewFormComponent {
   }
 
   interviewForm = new FormGroup({
-    interviewId: new FormControl('', [Validators.required]),
+    interviewId: new FormControl(11, [Validators.required]),
 
-    candidateId: new FormControl('', [Validators.required]),
-    finalStatus: new FormControl('', [Validators.required]),
-    hrRating: new FormControl('', [Validators.required]),
-    techRating: new FormControl('', [Validators.required]),
-    date: new FormControl('', [Validators.required])
+    candidateId: new FormControl(111, [Validators.required]),
+    finalStatus: new FormControl('fail', [Validators.required]),
+    hrRating: new FormControl(3, [Validators.required]),
+    techRating: new FormControl(4, [Validators.required]),
+    date: new FormControl('2020-09-09', [Validators.required])
   })
 
 

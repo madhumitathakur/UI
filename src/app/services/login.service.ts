@@ -5,13 +5,34 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
 import { catchError, retry } from 'rxjs/operators';
+import { Token } from '@angular/compiler';
+
+import {
+    HttpRequest,
+    HttpHandler,
+    HttpEvent,
+    HttpInterceptor
+} from '@angular/common/http';
 
 @Injectable()
-export class LoginService {
+export class LoginService implements HttpInterceptor {
+    authToken: any;
+
+    setToken(token: any) {
+        this.authToken = token;
+    }
+
+    getToken() {
+        return this.authToken;
+    }
 
     postUrl = 'http://localhost:8003/its-login/user/authenticate';
 
     constructor(private httpClient: HttpClient) { }
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        throw new Error('Method not implemented.');
+    }
+
 
     createNewLogin(loginForms: any): Observable<any> {
         let httpOptions = {
@@ -56,12 +77,12 @@ export class LoginService {
     // }
 
 
-    login = [
-        {
-            userName: '',
-            password: ''
-        },
-    ];
+    // login = [
+    //     {
+    //         userName: '',
+    //         password: ''
+    //     },
+    // ];
 
 
 
