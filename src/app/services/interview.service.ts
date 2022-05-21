@@ -12,7 +12,9 @@ export class InterviewService {
     getUrl = 'http://localhost:8004/admin/interviews';
     deleteUrl = 'http://localhost:8004/admin/interview';
     postUrl = 'http://localhost:8004/admin/interview';
-    token: any;
+    token = {
+        "jwt": ""
+    }
 
     constructor(private httpClient: HttpClient, private loginService: LoginService) {
 
@@ -24,10 +26,15 @@ export class InterviewService {
             headers: new HttpHeaders({
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.token.value
+                // 'Authorization': 'Bearer ' + this.token.jwt.valueOf
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzE4MDg0NywiaWF0IjoxNjUzMTQ0ODQ3fQ.fBmiuz_C6399ZAHv02IxvaJzFQm1si6O8CFzRlNxfPQ'
+
+
             }),
         };
-        //this.addInterviews(product);
+        // console.log("jwt value ", this.token.jwt.valueOf)
+        // console.log("jwt value only jwt  ", this.token.jwt)
+
         return this.httpClient.post<any>(
             this.postUrl,
             JSON.stringify(interviewForms),
