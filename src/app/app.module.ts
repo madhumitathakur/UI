@@ -16,6 +16,9 @@ import { CandidateFormComponent } from './components/candidate-form/candidate-fo
 import { CandidateTableComponent } from './components/candidate-table/candidate-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+import { InterviewService } from './services/interview.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [InterviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
