@@ -120,7 +120,7 @@
                 </tr>
             </thead>
     <tbody>
-        <tr *ngFor="let detail of  pannelMembersDetails">
+        <tr *ngFor="let detail of  forms">
             <td>
                 {{detail.employeeId}}
             </td>
@@ -128,12 +128,8 @@
             <td>{{detail.name}}</td>
             <td>{{detail.type}}</td>
             <td>{{detail.location}}</td>
-            <!-- <td>{{detail.date}}</td> -->
-           <!--- <td><button type="button" class="btn btn-success bg-danger"
-                    (click)="deleteInterviewById(detail.interviewId)">Delete</button></td>
-            <td><button type="button" class="btn btn-success bg-primary"
-                    (click)="shareInterviewById(detail.interviewId)">Share</button></td>
-            -->
+            <td><button type="button" class="btn btn-success bg-danger"
+                    (click)="deleteBypannelId(detail.employeeId)">Delete</button></td>
       
         </tr>
 

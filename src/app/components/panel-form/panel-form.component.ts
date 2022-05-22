@@ -53,4 +53,7 @@ export class PanelFormComponent  {
   this.pannelService.addPannels(pannel_form);
 
 }
+deleteBypannelId(employeeId: number) {
+  console.log("delete method called");
+}
 }
