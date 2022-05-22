@@ -60,11 +60,4 @@ deleteBypannelId(employeeId: number) {
   console.log("delete method called");
 })
 }
-deleteBypannelhrId(employeeId: number) {
-  this.pannelService.deleteBypannelhrId(employeeId).subscribe((serverResponse: any) => {
-    console.log('deletepannelid - serviceResponse : ', serverResponse);
-
-  console.log("delete method called");
-})
-}
 }
