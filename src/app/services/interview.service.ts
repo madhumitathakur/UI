@@ -13,13 +13,16 @@ export class InterviewService {
     deleteUrl = 'http://localhost:8004/admin/interview';
     postUrl = 'http://localhost:8004/admin/interview';
     token: string = '';
+    // test: string = 'Bearer ';
     constructor(private httpClient: HttpClient, private loginService: LoginService) {
 
     }
 
     createNewInterview(interviewForms: any): Observable<any> {
         this.token = this.loginService.getToken();
-        console.log("this token in bearer ", this.token)
+        console.log("inside inter service - token value - >", this.token);
+        // this.test = "added 1" + this.test;
+        // console.log("test ++ ", this.test)
         let httpOptions = {
             headers: new HttpHeaders({
                 'Access-Control-Allow-Origin': '*',
@@ -40,10 +43,13 @@ export class InterviewService {
         );
     }
 
-    deleteByInterviewId(interviewId: any): Observable<Boolean> {
+    deleteByInterviewId(interviewId: number): Observable<Boolean> {
+        this.token = this.loginService.getToken();
+        console.log("delet service ", this.token)
         const headers = {
             'content-type': 'application/json',
             'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Bearer ' + this.token
         };
         return this.httpClient.delete<Boolean>(this.deleteUrl + '/' + interviewId, {
             headers: headers,
