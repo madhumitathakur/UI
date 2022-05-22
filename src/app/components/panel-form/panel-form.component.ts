@@ -25,21 +25,21 @@ export class PanelFormComponent  {
 
 
 
-  pannelForm = new FormGroup({
+  panelForm = new FormGroup({
     employeeId: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]),
     location: new FormControl('', [Validators.required]),
   })
 
-  submitPannelForm = () => {
+  submitPanelForm = () => {
 
     var pannel_form = {
-      employeeId: this.pannelForm.value['employeeId'],
-      name: this.pannelForm.value['name'],
-      type: this.pannelForm.value['type'],
+      employeeId: this.panelForm.value['employeeId'],
+      name: this.panelForm.value['name'],
+      type: this.panelForm.value['type'],
 
-      location: this.pannelForm.value['location']
+      location: this.panelForm.value['location']
       // date: this.interviewForm.value['date']
     };
 
@@ -49,7 +49,7 @@ export class PanelFormComponent  {
     this.forms.push(serverResponse);
   })
 
-  console.log(this.pannelForm.value);
+  console.log(this.panelForm.value);
   this.pannelService.addPannels(pannel_form);
 
 }
