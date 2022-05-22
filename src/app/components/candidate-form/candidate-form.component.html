@@ -1,1 +1,100 @@
 <p>candidate-form works!</p>
+
+<h2>Add a Candidate</h2>
+<br><br>
+<!-- <form [formGroup]="candidateForm" (ngSubmit)="submitProuctDetails()"> -->
+    
+<form [formGroup]="candidateForm" (ngSubmit) = "submitCandidateForm()">
+    <div class="container">
+
+        <div class="form-group">
+            <input type="text" formControlName="candidateName" placeholder="Cadidate Name" class="form-control" />
+        </div>
+        <div *ngIf="candidateForm.controls['candidateName'].hasError('required')" class="alert alert-danger">
+            Please Add Name
+        </div>
+        <div *ngIf="candidateForm.controls['candidateName'].hasError('minlength')" class="alert alert-danger">
+            Please Add Minimum Length 3
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="text" formControlName="primarySkills" class="form-control" placeholder="Primary Skills"/>
+            <div *ngIf="candidateForm.controls['primarySkills'].hasError('required')" class="alert alert-danger">
+                Please primary Skills
+            </div>
+            <div *ngIf="candidateForm.controls['primarySkills'].hasError('minlength')" class="alert alert-danger">
+                Please Add Mainimum Length 3
+            </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="text" formControlName="secondarySkills" class="form-control" placeholder="Secondary Skills" />
+            <div *ngIf="candidateForm.controls['secondarySkills '].hasError('required')" class="alert alert-danger">
+                Please Add secondary Skills 
+            </div>
+            <div *ngIf="candidateForm.controls['secondarySkills '].hasError('minlength')" class="alert alert-danger">
+                Please Add Minimum Length 3
+            </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="text" formControlName="experience" class="form-control" placeholder="Experience (in years)" />
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="text" formControlName="qualification" class="form-control" placeholder="Qualification" />
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="text" formControlName="designation" class="form-control" placeholder="Designation" />
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="text" formControlName="noticePeriod" class="form-control" placeholder="Notice Period" />
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="text" formControlName="location" class="form-control" placeholder="Location" />
+        </div>
+
+        <br />
+        <div class="form-group">
+            <button [disabled]= !candidateForm type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br />
+    </div>
+</form>
+
+<h2>Candidate List</h2>
+
+<table border="5px" class="table table-borderless">
+
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Primary Skills</td>
+        <td>Secondary Skills</td>
+        <td>Experience</td>
+        <td>Qualification</td>
+        <td>Designation</td>
+        <td>Notice Period</td>
+        <td>Location</td>
+    </tr>
+<!-- 
+    <tr *ngFor='let advertise of advertises '>
+        <td>{{advertise.id}}</td>
+        <td>{{advertise.name}}</td>
+        <td>{{advertise.title}}</td>
+        <td>{{advertise.category}}</td>
+        <td>{{advertise.description}}</td>
+        <td><button type="button" >Edit</button></td>
+        <td><button type="button" >Delete</button></td>
+    </tr> -->
+    </table>
