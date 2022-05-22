@@ -8,7 +8,7 @@ import { CandidateService } from 'src/app/services/candidate.service';
   templateUrl: './candidate-form.component.html',
   styleUrls: ['./candidate-form.component.css']
 })
-export class CandidateFormComponent implements OnInit {
+export class CandidateFormComponent  {
 
   // constructor(private candidateService : CandidateService){
 
@@ -25,21 +25,19 @@ export class CandidateFormComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
 
   
 
   candidateForm = new FormGroup({
     
-    candidateName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    primarySkills: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    secondarySkills: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    experience: new FormControl(null, [Validators.required]),
-    qualification: new FormControl(null, [Validators.required]),
-    designation: new FormControl(null, [Validators.required]),
-    noticePeriod: new FormControl(null, [Validators.required]),
-    location: new FormControl(null, [Validators.required])
+    candidateName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    primarySkills: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    secondarySkills: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    experience: new FormControl('', [Validators.required]),
+    qualification: new FormControl('', [Validators.required]),
+    designation: new FormControl('', [Validators.required]),
+    noticePeriod: new FormControl('', [Validators.required]),
+    location: new FormControl('', [Validators.required])
   })
 
   submitCandidateForm = () => {
