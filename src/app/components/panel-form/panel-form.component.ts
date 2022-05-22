@@ -54,6 +54,10 @@ export class PanelFormComponent  {
 
 }
 deleteBypannelId(employeeId: number) {
+  this.pannelService.deleteBypannelId(employeeId).subscribe((serverResponse: any) => {
+    console.log('deletepannelid - serviceResponse : ', serverResponse);
+
   console.log("delete method called");
+})
 }
 }
