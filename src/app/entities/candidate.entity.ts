@@ -1,6 +1,6 @@
 export class Candidate{
 
-    candidateId:number = 0;
+   // candidateId:number = 0;
     candidateName:String = '';
     primarySkills:String = '';
     secondarySkills:String = '';

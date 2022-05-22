@@ -21,6 +21,7 @@ import { InterviewService } from './services/interview.service';
 import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
+import { CandidateService } from './services/candidate.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { LoggingInterceptor } from './logging.interceptor';
     HttpClientModule
   ],
 
-  providers: [InterviewService, PannelService, LoginService,
+  providers: [InterviewService, PannelService, LoginService,CandidateService,
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }],
 
   bootstrap: [AppComponent]

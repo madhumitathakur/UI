@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Candidate } from 'src/app/entities/candidate.entity';
 import { CandidateService } from 'src/app/services/candidate.service';
 
@@ -10,11 +10,17 @@ import { CandidateService } from 'src/app/services/candidate.service';
 })
 export class CandidateFormComponent implements OnInit {
 
-  constructor(private candidateService : CandidateService) { 
+  // constructor(private candidateService : CandidateService){
+
+  // }
+  forms: any = [];
+  candidateDetails: Array<Candidate> = new Array();
+
+  constructor(private candidateService : CandidateService, private formBuilder: FormBuilder) { 
     this.candidateService.getAllCandidate().subscribe((serverResponse: any) => {
 
-      console.log('constrcutor serverResponse ', serverResponse);
-      this.candidates = serverResponse;
+      console.log('constructor serverResponse ', serverResponse);
+      this.forms = serverResponse;
 
     })
   }
@@ -22,8 +28,7 @@ export class CandidateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  candidates: any = [];
-  candidateDetails: Array<Candidate> = new Array();
+  
 
   candidateForm = new FormGroup({
     
@@ -51,12 +56,13 @@ export class CandidateFormComponent implements OnInit {
       location: this.candidateForm.value['location']
     };
 
-    this.candidateService.createNewInterview(candidate_form).subscribe((serverResponse: any) => {
+    this.candidateService.createNewCandidate(candidate_form).subscribe((serverResponse: any) => {
       console.log('createNewCandidate - serviceResponse : ', serverResponse);
 
-      this.candidates.push(serverResponse);
+      this.forms.push(serverResponse);
     })
 
     console.log(this.candidateForm.value);
+    this.candidateService.addCandidate(candidate_form);
 }
 }
