@@ -24,6 +24,7 @@ import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
 import { TechinterviewComponent } from './components/techinterview/techinterview.component';
 import { CandidateService } from './services/candidate.service';
+import { SearchText } from './pipes/searchtext.pipe';
 
 
 import { AdminHomeComponent } from './admin-home/admin-home.component';
@@ -47,7 +48,8 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     TechinterviewComponent,
     HrForm,
-    AdminHomeComponent
+    AdminHomeComponent,
+    SearchText
 
   ],
   imports: [

@@ -101,29 +101,15 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     <br />
-
-    <div class="form-group row">
-        <label for="search" class="col-sm-2 col-form-label" style="text-align: right">Search</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" id="search" />
-        </div>
-        <br />
-    </div>
 </form>
-//
 
-
-
-
-<ul>
-    <li *ngFor="let value of forms">{{value | json}}</li>
-</ul>
-<div class="form-group row">
+<div class="container">
+    <div class="form-group row">
     <label for="search" class="col-sm-2 col-form-label" style="text-align: right">Search</label>
     <div class="col-sm-6">
-        <input type="text" class="form-control" id="search" />
+    <input type="text" #searchTxt (keyup) = "0" class="form-control"/>
     </div>
-
+ </div>
     <table>
         <table class="table table-striped table-hover">
             <thead>
@@ -138,7 +124,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let detail of  forms">
+                <tr *ngFor="let detail of  forms | search:searchTxt.value">
                     <td>
                         {{detail.employeeId}}
                     </td>
