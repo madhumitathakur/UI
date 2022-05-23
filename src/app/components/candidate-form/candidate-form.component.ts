@@ -8,9 +8,9 @@ import { CandidateService } from 'src/app/services/candidate.service';
   templateUrl: './candidate-form.component.html',
   styleUrls: ['./candidate-form.component.css']
 })
-export class CandidateFormComponent  {
+export class CandidateFormComponent {
 
-  constructor(private candidateService : CandidateService) { 
+  constructor(private candidateService: CandidateService) {
     this.candidateService.getAllCandidate().subscribe((serverResponse: any) => {
 
       console.log('constrcutor serverResponse ', serverResponse);
@@ -19,14 +19,13 @@ export class CandidateFormComponent  {
     })
   }
 
-
   candidates: any = [];
   candidateDetails: Array<Candidate> = new Array();
 
   candidateForm = new FormGroup({
-    
-    candidateName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    primarySkills: new FormControl('', [Validators.required, Validators.minLength(3)]),
+
+    candidateName: new FormControl('Satyam', [Validators.required, Validators.minLength(3)]),
+    primarySkills: new FormControl('Java', [Validators.required, Validators.minLength(3)]),
     secondarySkills: new FormControl('', [Validators.required, Validators.minLength(3)]),
     experience: new FormControl('', [Validators.required]),
     qualification: new FormControl('', [Validators.required]),
@@ -49,12 +48,12 @@ export class CandidateFormComponent  {
       location: this.candidateForm.value['location']
     };
 
-    this.candidateService.createNewInterview(candidate_form).subscribe((serverResponse: any) => {
+    this.candidateService.createNewCandidate(candidate_form).subscribe((serverResponse: any) => {
       console.log('createNewCandidate - serviceResponse : ', serverResponse);
 
       this.candidates.push(serverResponse);
     })
 
     console.log(this.candidateForm.value);
-}
+  }
 }

@@ -1,10 +1,8 @@
-<p>candidate-form works!</p>
-
 <h2>Add a Candidate</h2>
 <br><br>
 <!-- <form [formGroup]="candidateForm" (ngSubmit)="submitProuctDetails()"> -->
-    
-<form [formGroup]="candidateForm" (ngSubmit) = "submitCandidateForm()">
+
+<form [formGroup]="candidateForm" (ngSubmit)="submitCandidateForm()">
     <div class="container">
 
         <div class="form-group">
@@ -19,7 +17,7 @@
 
         <br />
         <div class="form-group">
-            <input type="text" formControlName="primarySkills" class="form-control" placeholder="Primary Skills"/>
+            <input type="text" formControlName="primarySkills" class="form-control" placeholder="Primary Skills" />
             <div *ngIf="candidateForm.controls['primarySkills'].hasError('required')" class="alert alert-danger">
                 Please primary Skills
             </div>
@@ -31,17 +29,18 @@
         <br />
         <div class="form-group">
             <input type="text" formControlName="secondarySkills" class="form-control" placeholder="Secondary Skills" />
-            <div *ngIf="candidateForm.controls['secondarySkills '].hasError('required')" class="alert alert-danger">
+            <!-- <div *ngIf="candidateForm.controls['secondarySkills '].hasError('required')" class="alert alert-danger">
                 Please Add secondary Skills 
             </div>
             <div *ngIf="candidateForm.controls['secondarySkills '].hasError('minlength')" class="alert alert-danger">
                 Please Add Minimum Length 3
-            </div>
+            </div> -->
         </div>
 
         <br />
         <div class="form-group">
-            <input type="number" formControlName="experience" class="form-control" placeholder="Experience (in years)" />
+            <input type="number" formControlName="experience" class="form-control"
+                placeholder="Experience (in years)" />
         </div>
 
         <br />
@@ -66,7 +65,7 @@
 
         <br />
         <div class="form-group">
-            <button  type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         <br />
     </div>
@@ -76,25 +75,31 @@
 
 <table border="5px" class="table table-borderless">
 
-    <tr>
-        <td>Id</td>
-        <td>Name</td>
-        <td>Primary Skills</td>
-        <td>Secondary Skills</td>
-        <td>Experience</td>
-        <td>Qualification</td>
-        <td>Designation</td>
-        <td>Notice Period</td>
-        <td>Location</td>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Primary Skills</td>
+            <td>Secondary Skills</td>
+            <td>Experience</td>
+            <td>Qualification</td>
+            <td>Designation</td>
+            <td>Notice Period</td>
+            <td>Location</td>
+        </tr>
+    </thead>
+
+    <tr *ngFor='let detail of candidates '>
+        <td>{{detail.id}}</td>
+        <td>{{detail.candidateName}}</td>
+        <td>{{detail.primarySkills}}</td>
+        <td>{{detail.secondarySkills}}</td>
+        <td>{{detail.experience}}</td>
+        <td>{{detail.qualification}}</td>
+        <td>{{detail.designation}}</td>
+        <td>{{detail.noticePeriod}}</td>
+        <td>{{detail.location}}</td>
+        <td><button type="button">Edit</button></td>
+        <td><button type="button">Delete</button></td>
     </tr>
-<!-- 
-    <tr *ngFor='let advertise of advertises '>
-        <td>{{advertise.id}}</td>
-        <td>{{advertise.name}}</td>
-        <td>{{advertise.title}}</td>
-        <td>{{advertise.category}}</td>
-        <td>{{advertise.description}}</td>
-        <td><button type="button" >Edit</button></td>
-        <td><button type="button" >Delete</button></td>
-    </tr> -->
-    </table>
+</table>

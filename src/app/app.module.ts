@@ -23,6 +23,7 @@ import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
 import { TechinterviewComponent } from './components/techinterview/techinterview.component';
+import { CandidateService } from './services/candidate.service';
 
 
 
@@ -49,7 +50,7 @@ import { TechinterviewComponent } from './components/techinterview/techinterview
     HttpClientModule
   ],
 
-  providers: [InterviewService, PannelService, LoginService, HrService,
+  providers: [InterviewService, PannelService, LoginService, HrService, CandidateService,
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }],
 
   bootstrap: [AppComponent]

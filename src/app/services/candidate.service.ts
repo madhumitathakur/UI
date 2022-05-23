@@ -4,16 +4,16 @@ import { Observable } from 'rxjs';
 import { LoginService } from './login.service';
 
 @Injectable()
-export class CandidateService{
+export class CandidateService {
 
     getUrl = 'http://localhost:8004/admin/candidate';
-    postUrl = 'http://localhost:8004/admin/canidate';
+    postUrl = 'http://localhost:8004/admin/candidate';
     token: string = '';
     constructor(private httpClient: HttpClient, private loginService: LoginService) {
 
     }
 
-    createNewInterview(candidateForms: any): Observable<any> {
+    createNewCandidate(candidateForms: any): Observable<any> {
         this.token = this.loginService.getToken();
         console.log("this token in bearer ", this.token)
         let httpOptions = {
@@ -22,7 +22,6 @@ export class CandidateService{
                 'Content-Type': 'application/json',
                 // 'Authorization': 'Bearer ' + this.token.jwt.valueOf
                 'Authorization': 'Bearer ' + this.token
-
 
             }),
         };
@@ -36,7 +35,7 @@ export class CandidateService{
         );
     }
 
-    getAllCandidate(): Observable<any>{
+    getAllCandidate(): Observable<any> {
         let httpOptions = {
             headers: new HttpHeaders({
                 'Access-Control-Allow_origin': '*',
