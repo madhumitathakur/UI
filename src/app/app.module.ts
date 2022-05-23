@@ -16,12 +16,15 @@ import { CandidateFormComponent } from './components/candidate-form/candidate-fo
 import { CandidateTableComponent } from './components/candidate-table/candidate-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { HrForm } from './components/hr-form/hr-form.components';
+import { HrService } from './services/hr.services';
 import { InterviewService } from './services/interview.service';
 import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
 import { TechinterviewComponent } from './components/techinterview/techinterview.component';
+
+import { HrLoginComponent } from './components/hr-login/hr-login.components';
 
 
 @NgModule({
@@ -35,7 +38,12 @@ import { TechinterviewComponent } from './components/techinterview/techinterview
     PanelTableComponent,
     SignupComponent,
     LoginComponent,
+<<<<<<< HEAD
     TechinterviewComponent
+=======
+    HrLoginComponent,
+    HrForm
+>>>>>>> 66e704aff71ed851b97261b29b40205094122e77
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,7 @@ import { TechinterviewComponent } from './components/techinterview/techinterview
     HttpClientModule
   ],
 
-  providers: [InterviewService, PannelService, LoginService,
+  providers: [InterviewService, PannelService, LoginService, HrService,
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }],
 
   bootstrap: [AppComponent]

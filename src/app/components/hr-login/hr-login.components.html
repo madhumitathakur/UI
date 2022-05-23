@@ -1,0 +1,34 @@
+<h1>Login Form </h1>
+<br><br>
+
+<form [formGroup]="HrloginForm" (ngSubmit)="submitLogin()">
+
+    <div class="container">
+
+
+        <div class="form-group">
+            <input type="text" formControlName="userName" class=" form-control" placeholder="userName" />
+            <div *ngIf="HrloginForm.controls['userName'].hasError('required')" class="alert alert-danger">
+                Please Add user Name
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" formControlName="password" class=" form-control" placeholder="password" />
+            <div *ngIf="HrloginForm.controls['password'].hasError('required')" class="alert alert-danger">
+                Please Add user Name
+            </div>
+        </div>
+
+
+
+
+
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br />
+    </div>
+
+</form>
