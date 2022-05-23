@@ -16,15 +16,20 @@ import { CandidateFormComponent } from './components/candidate-form/candidate-fo
 import { CandidateTableComponent } from './components/candidate-table/candidate-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { HrForm } from './components/hr-form/hr-form.components';
+import { HrService } from './services/hr.services';
 import { InterviewService } from './services/interview.service';
 import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
+<<<<<<< HEAD
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 import { RouterModule } from '@angular/router';
 
+=======
+import { TechinterviewComponent } from './components/techinterview/techinterview.component';
+>>>>>>> 41bd56a62b42fd2f75ec27cdaf3ab991deec8076
 
 
 @NgModule({
@@ -38,7 +43,11 @@ import { RouterModule } from '@angular/router';
     PanelTableComponent,
     SignupComponent,
     LoginComponent,
+<<<<<<< HEAD
     AdminHomeComponent
+=======
+    TechinterviewComponent
+>>>>>>> 41bd56a62b42fd2f75ec27cdaf3ab991deec8076
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
 
-  providers: [InterviewService, PannelService, LoginService,
+  providers: [InterviewService, PannelService, LoginService, HrService,
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }],
 
   bootstrap: [AppComponent]
