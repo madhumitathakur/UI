@@ -22,6 +22,7 @@ import { InterviewService } from './services/interview.service';
 import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
+import { TechinterviewComponent } from './components/techinterview/techinterview.component';
 
 import { HrLoginComponent } from './components/hr-login/hr-login.components';
 
@@ -37,8 +38,12 @@ import { HrLoginComponent } from './components/hr-login/hr-login.components';
     PanelTableComponent,
     SignupComponent,
     LoginComponent,
+<<<<<<< HEAD
+    TechinterviewComponent
+=======
     HrLoginComponent,
     HrForm
+>>>>>>> 66e704aff71ed851b97261b29b40205094122e77
   ],
   imports: [
     BrowserModule,

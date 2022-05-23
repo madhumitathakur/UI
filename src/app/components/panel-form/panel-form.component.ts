@@ -27,9 +27,9 @@ export class PanelFormComponent  {
 
   panelForm = new FormGroup({
     employeeId: new FormControl('', [Validators.required]),
-    name: new FormControl('', [Validators.required]),
+    name: new FormControl('nag', [Validators.required]),
     type: new FormControl('', [Validators.required]),
-    location: new FormControl('', [Validators.required]),
+    location: new FormControl('Hyd', [Validators.required]),
   })
 
   submitPanelForm = () => {
@@ -53,7 +53,15 @@ export class PanelFormComponent  {
   this.pannelService.addPannels(pannel_form);
 
 }
-deleteBypannelId(employeeId: number) {
+deleteBypannelId(employeeId: number,type:string) {
+  console.log("typevalue",type);
+  if(type == 'Hr'){
+      this.pannelService.deleteBypannelhrId(employeeId).subscribe((serverResponse: any) => {
+        console.log('deletepannelid - serviceResponse : ', serverResponse);
+    
+      console.log("delete method called");
+    })
+  }
   this.pannelService.deleteBypannelId(employeeId).subscribe((serverResponse: any) => {
     console.log('deletepannelid - serviceResponse : ', serverResponse);
 
@@ -61,3 +69,5 @@ deleteBypannelId(employeeId: number) {
 })
 }
 }
+
+
