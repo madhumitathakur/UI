@@ -21,6 +21,10 @@ import { InterviewService } from './services/interview.service';
 import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -33,7 +37,8 @@ import { LoggingInterceptor } from './logging.interceptor';
     PanelFormComponent,
     PanelTableComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { LoggingInterceptor } from './logging.interceptor';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
 
   providers: [InterviewService, PannelService, LoginService,

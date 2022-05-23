@@ -65,8 +65,6 @@ export class InterviewFormComponent {
 
 
   deleteInterviewById(id: number) {
-    console.log("delete method called");
-    console.log(" delete id ", id)
     this.interviewService.deleteByInterviewId(id).subscribe((serverResponse: any) => {
       console.log('delete id - serviceResponse : ', serverResponse);
 
@@ -76,8 +74,12 @@ export class InterviewFormComponent {
   }
 
 
-  shareInterviewById(id: number) {
-    console.log("share called");
+  shareInterviewById(shareId: number) {
+    this.interviewService.shareCandidateById(shareId).subscribe((serverResponse: any) => {
+      console.log('share id - serviceResponse : ', serverResponse);
+
+
+    })
   }
 
 }
