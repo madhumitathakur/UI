@@ -15,7 +15,7 @@ import { LoginComponent } from './components/admin-login/login.component';
 import { CandidateFormComponent } from './components/candidate-form/candidate-form.component';
 import { CandidateTableComponent } from './components/candidate-table/candidate-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HrModel } from './model/hr-model';
 import { HrForm } from './components/hr-form/hr-form.components';
 import { HrService } from './services/hr.services';
 import { InterviewService } from './services/interview.service';
@@ -38,7 +38,8 @@ import { TechinterviewComponent } from './components/techinterview/techinterview
     SignupComponent,
     LoginComponent,
     TechinterviewComponent,
-    HrForm
+    HrForm,
+    
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,7 @@ import { TechinterviewComponent } from './components/techinterview/techinterview
     HttpClientModule
   ],
 
-  providers: [InterviewService, PannelService, LoginService, HrService,
+  providers: [InterviewService, PannelService, LoginService, HrService, HrModel,
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }],
 
   bootstrap: [AppComponent]
