@@ -15,7 +15,7 @@ import { LoginComponent } from './components/admin-login/login.component';
 import { CandidateFormComponent } from './components/candidate-form/candidate-form.component';
 import { CandidateTableComponent } from './components/candidate-table/candidate-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HrModel } from './model/hr-model';
 import { HrForm } from './components/hr-form/hr-form.components';
 import { HrService } from './services/hr.services';
 import { InterviewService } from './services/interview.service';
@@ -24,6 +24,13 @@ import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
 import { TechinterviewComponent } from './components/techinterview/techinterview.component';
 import { CandidateService } from './services/candidate.service';
+
+
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+
+
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -39,7 +46,9 @@ import { CandidateService } from './services/candidate.service';
     SignupComponent,
     LoginComponent,
     TechinterviewComponent,
-    HrForm
+    HrForm,
+    AdminHomeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -51,6 +60,7 @@ import { CandidateService } from './services/candidate.service';
   ],
 
   providers: [InterviewService, PannelService, LoginService, HrService, CandidateService,
+
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }],
 
   bootstrap: [AppComponent]

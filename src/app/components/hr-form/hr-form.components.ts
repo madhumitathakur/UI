@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -18,9 +19,9 @@ export class HrForm {
 
 
 
-  constructor(private HrService: HrService, private formBuilder: FormBuilder) {
+  constructor(private hrService: HrService, private formBuilder: FormBuilder) {
 
-    this.HrService.viewInterviewMembers(HrForm).subscribe((serverResponse: any) => {
+    this.hrService.viewInterviewMembers(HrForm).subscribe((serverResponse: any) => {
       console.log('constructor serverResponse ', serverResponse);
       this.forms = serverResponse;
     })
@@ -52,13 +53,13 @@ export class HrForm {
       // date: this.interviewForm.value['date']
     };
 
-    this.HrService.viewCandidatesById().subscribe((serverResponse: any) => {
+    this.hrService.viewCandidatesById().subscribe((serverResponse: any) => {
         console.log('constructor serverResponse ', serverResponse);
         this.forms = serverResponse;
       })
 
     console.log(this.HrForm.value);
-    this.HrService.giveRating(this.HrForm.value['hrRating']);
+    this.hrService.giveRating(this.HrForm.value['hrRating']);
 
   }
 
