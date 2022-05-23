@@ -62,7 +62,7 @@ export class LoginComponent {
       console.log("token -> var ", token);
       this.loginService.setToken(token);
       if (token.length > 30) {
-        this.router.navigate(['/home']);
+        this.gotoSecond();
       }
     })
 

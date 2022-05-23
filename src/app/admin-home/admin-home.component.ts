@@ -27,4 +27,12 @@ export class AdminHomeComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  gotoTech() {
+    this.router.navigate(['/tech']);
+  }
+
+  gotoHr() {
+    this.router.navigate(['/hr']);
+  }
+
 }

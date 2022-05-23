@@ -4,6 +4,8 @@ export class Interview {
     techRating: number = 0;
     hrRating: number = 0;
     finalStatus: string = '';
+    // date: Date;
+    // date = new Date();
 
     // date = new Date();
 }
