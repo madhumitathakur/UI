@@ -3,6 +3,26 @@
 	private String type;
 	private String location;-->
 
+<<<<<<< HEAD
+<h1>ADD PannelMember Form </h1>
+<br><br>
+
+<form [formGroup]="pannelForm" (ngSubmit)="submitPannelForm()">
+
+    <div class="container">
+
+        <div class="form-group">
+            <input type="number" formControlName="employeeId" placeholder="enter employeeId Id" class="form-control" />
+        </div>
+        <div *ngIf="pannelForm.controls['employeeId'].hasError('required')" class="alert alert-danger">
+            Please Enter EmployeeId
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" formControlName="name" class=" form-control" placeholder="name" />
+            <div *ngIf="pannelForm.controls['name'].hasError('required')" class="alert alert-danger">
+                Enter PannelMemberName
+=======
     <h1>ADD PannelMember Form </h1>
     <br><br> 
     
@@ -29,18 +49,32 @@
                 <div *ngIf="pannelForm.controls['Tech or Hr'].hasError('required')" class="alert alert-danger">
                     Please Add PannelMemberType(Tech or HR)
                 </div>
+>>>>>>> 41bd56a62b42fd2f75ec27cdaf3ab991deec8076
             </div>
-            <br>
-            <div class="form-group">
-                <input type="text" formControlName="location" class=" form-control" placeholder="location" />
-                <div *ngIf="pannelForm.controls['location'].hasError('required')" class="alert alert-danger">
-                    Please Add location
-                </div>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+            <input type="text" formControlName="Tech or Hr" class="form-control" placeholder="Tech or Hr" />
+            <div *ngIf="pannelForm.controls['Tech or Hr'].hasError('required')" class="alert alert-danger">
+                Please Add PannelMemberType(Tech or HR)
             </div>
-            <br />
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <input type="text" formControlName="location" class="form-control" placeholder="location" />
+            <div *ngIf="pannelForm.controls['location'].hasError('required')" class="alert alert-danger">
+                Please Add location
             </div>
+<<<<<<< HEAD
+        </div>
+
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+=======
             <br />
             -->
             <div class="form-group">
@@ -101,8 +135,53 @@
         <label for="search" class="col-sm-2 col-form-label" style="text-align: right">Search</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" id="search"/>
+>>>>>>> 41bd56a62b42fd2f75ec27cdaf3ab991deec8076
         </div>
+        <br />
     </div>
+</form>
+
+
+<ul>
+    <li *ngFor="let value of forms">{{value | json}}</li>
+</ul>
+<div class="form-group row">
+    <label for="search" class="col-sm-2 col-form-label" style="text-align: right">Search</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" id="search" />
+    </div>
+<<<<<<< HEAD
+</div>
+
+<table>
+    <table class="table table-striped table-hover">
+        <thead>
+
+            <tr>
+
+                <th scope="col">EmployeeId</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Location</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let detail of  pannelMembersDetails">
+                <td>
+                    {{detail.employeeId}}
+                </td>
+
+                <td>{{detail.name}}</td>
+                <td>{{detail.type}}</td>
+                <td>{{detail.location}}</td>
+                <!-- <td>{{detail.date}}</td> -->
+                <!--- <td><button type="button" class="btn btn-success bg-danger"
+                    (click)="deleteInterviewById(detail.interviewId)">Delete</button></td>
+            <td><button type="button" class="btn btn-success bg-primary"
+                    (click)="shareInterviewById(detail.interviewId)">Share</button></td>
+            -->
+=======
     
     <table>
         <table class="table table-striped table-hover">
@@ -135,7 +214,9 @@
     </tbody>
 </table>
 
+>>>>>>> 41bd56a62b42fd2f75ec27cdaf3ab991deec8076
 
-           
+            </tr>
 
-    
+        </tbody>
+    </table>

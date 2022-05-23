@@ -3,6 +3,4 @@ export class Pannel {
     name: string = '';
     type: string = '';
     location: string = '';
-
-    // date = new Date();
 }

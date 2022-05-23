@@ -22,8 +22,17 @@ import { InterviewService } from './services/interview.service';
 import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
-import { TechinterviewComponent } from './components/techinterview/techinterview.component';
+<<<<<<< HEAD
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
+<<<<<<< HEAD
+=======
+import { RouterModule } from '@angular/router';
+
+=======
+import { TechinterviewComponent } from './components/techinterview/techinterview.component';
+>>>>>>> 41bd56a62b42fd2f75ec27cdaf3ab991deec8076
+>>>>>>> 49f388893d9441ba2876fd59d31fe3e635d20db7
 
 
 @NgModule({
@@ -37,9 +46,17 @@ import { TechinterviewComponent } from './components/techinterview/techinterview
     PanelTableComponent,
     SignupComponent,
     LoginComponent,
+<<<<<<< HEAD
     TechinterviewComponent,
     HrForm,
     
+=======
+<<<<<<< HEAD
+    AdminHomeComponent
+=======
+    TechinterviewComponent
+>>>>>>> 41bd56a62b42fd2f75ec27cdaf3ab991deec8076
+>>>>>>> 49f388893d9441ba2876fd59d31fe3e635d20db7
   ],
   imports: [
     BrowserModule,
@@ -47,7 +64,8 @@ import { TechinterviewComponent } from './components/techinterview/techinterview
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
 
   providers: [InterviewService, PannelService, LoginService, HrService, HrModel,

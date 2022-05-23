@@ -14,8 +14,8 @@ import { InterviewService } from 'src/app/services/interview.service';
 export class InterviewFormComponent {
   forms: any = [];
   interviewDetails: Array<Interview> = new Array();
-  // interviewForm: FormGroup;
-
+  intId: number = 0;
+  // interviewId: number = 0;
 
 
   constructor(private interviewService: InterviewService, private formBuilder: FormBuilder) {
@@ -64,17 +64,25 @@ export class InterviewFormComponent {
   }
 
 
-  deleteInterviewById(interviewId: number) {
-    console.log("delete method called");
+  deleteInterviewById(id: number) {
+    this.interviewService.deleteByInterviewId(id).subscribe((serverResponse: any) => {
+      console.log('delete id - serviceResponse : ', serverResponse);
+
+      this.forms.splice(id);
+    })
+
   }
 
-  shareInterviewById(interviewId: number) {
-    console.log("share called")
+
+  shareInterviewById(shareId: number) {
+    this.interviewService.shareCandidateById(shareId).subscribe((serverResponse: any) => {
+      console.log('share id - serviceResponse : ', serverResponse);
+
+
+    })
   }
 
 }
-
-
 
 
 
