@@ -58,7 +58,8 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
 
   providers: [InterviewService, PannelService, LoginService, HrService, CandidateService,

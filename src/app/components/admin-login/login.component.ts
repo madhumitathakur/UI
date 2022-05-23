@@ -4,9 +4,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Login } from 'src/app/entities/login.entity';
 
 import { LoginService } from 'src/app/services/login.service';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-form',
@@ -16,10 +16,10 @@ export class LoginComponent {
   forms: any = [];
   loginDetails: Array<Login> = new Array();
   // loginForm: FormGroup;
+  status: string = 'fail';
 
 
-
-  constructor(private loginService: LoginService, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private loginService: LoginService, private formBuilder: FormBuilder) {
 
     // this.loginService.getAllLogins().subscribe((serverResponse: any) => {
     //   console.log('constrcutor serverResponse ', serverResponse);
@@ -57,16 +57,22 @@ export class LoginComponent {
 
       this.forms.push(serverResponse);
       var token = serverResponse;
-      console.log("token -> var " , token);
+      console.log(this.loginForm.value);
+
+      console.log("token -> var ", token);
       this.loginService.setToken(token);
+      if (token.length > 30) {
+        this.router.navigate(['/home']);
+      }
     })
 
-    console.log(this.loginForm.value);
 
 
   }
 
-
+  gotoSecond() {
+    this.router.navigate(['/home']);
+  }
 
 
 }
@@ -76,4 +82,6 @@ export class LoginComponent {
 
 
 
+function setLoginStatus(value: string) {
+}
 
