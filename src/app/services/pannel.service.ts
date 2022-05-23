@@ -46,7 +46,22 @@ export class PannelService {
         return this.httpClient.delete<Boolean>(this.deleteUrl + '/' + employeeId, {
             headers: headers,
         });
+
     }
+
+    
+    deleteBypannelhrId(employeeId: any): Observable<Boolean> {
+         const headers = {
+              'content-type': 'application/json',
+               'Access-Control-Allow-Origin': '*',
+             };
+             return this.httpClient.delete<Boolean>(this.deleteUrl + '/' + employeeId, {
+                headers: headers,
+            });
+    
+        }
+    
+    
 
     getAllPannelMembers(): Observable<any> {
         this.token = this.loginService.getToken();
