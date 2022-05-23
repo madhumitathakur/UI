@@ -13,10 +13,10 @@ export class PannelService {
     getUrl = 'http://localhost:8004/admin/panel';
     deleteUrl = 'http://localhost:8004/admin/panel/tech';
     postUrl = 'http://localhost:8004/admin/panel';
-    deleteUrl1='http://localhost:8004/admin/panel/hr';
+    deleteUrl1 = 'http://localhost:8004/admin/panel/hr';
     pannel: any;
     token: string = '';
-    constructor(private httpClient: HttpClient,private loginService: LoginService) { }
+    constructor(private httpClient: HttpClient, private loginService: LoginService) { }
 
     createNewPannel(pannelForms: any): Observable<any> {
         this.token = this.loginService.getToken();
@@ -50,19 +50,19 @@ export class PannelService {
 
     }
 
-    
-    deleteBypannelhrId(employeeId: any): Observable<Boolean> {
-         const headers = {
-              'content-type': 'application/json',
-               'Access-Control-Allow-Origin': '*',
-             };
-             return this.httpClient.delete<Boolean>(this.deleteUrl + '/' + employeeId, {
-                headers: headers,
-            });
-    
-        }
-    
-    
+
+    // deleteBypannelhrId(employeeId: any): Observable<Boolean> {
+    //      const headers = {
+    //           'content-type': 'application/json',
+    //            'Access-Control-Allow-Origin': '*',
+    //          };
+    //          return this.httpClient.delete<Boolean>(this.deleteUrl + '/' + employeeId, {
+    //             headers: headers,
+    //         });
+
+    //     }
+
+
 
     getAllPannelMembers(): Observable<any> {
         this.token = this.loginService.getToken();
