@@ -21,6 +21,7 @@ import { InterviewService } from './services/interview.service';
 import { PannelService } from './services/pannel.service';
 import { LoginService } from './services/login.service';
 import { LoggingInterceptor } from './logging.interceptor';
+import { TechinterviewComponent } from './components/techinterview/techinterview.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { LoggingInterceptor } from './logging.interceptor';
     PanelFormComponent,
     PanelTableComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    TechinterviewComponent
   ],
   imports: [
     BrowserModule,
