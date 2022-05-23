@@ -13,6 +13,7 @@ export class PannelService {
     getUrl = 'http://localhost:8004/admin/panel';
     deleteUrl = 'http://localhost:8004/admin/panel/tech';
     postUrl = 'http://localhost:8004/admin/panel';
+    deleteUrl1='http://localhost:8004/admin/panel/hr';
     pannel: any;
     token: string = '';
     constructor(private httpClient: HttpClient,private loginService: LoginService) { }
@@ -59,5 +60,16 @@ export class PannelService {
             }),
         };
         return this.httpClient.get<any>(this.getUrl, httpOptions);
+    }
+
+    deleteBypannelhrId(employeeId: any): Observable<Boolean> {
+        const headers = {
+            'content-type': 'application/json',
+
+            'Access-Control-Allow-Origin': '*',
+        };
+        return this.httpClient.delete<Boolean>(this.deleteUrl1 + '/' + employeeId, {
+            headers: headers,
+        });
     }
 }
